@@ -10,50 +10,58 @@ function generatePassword() {
 
   var characters = "";
   var type = 0;
+  while (type === 0) {
+      var uppercase = prompt("Uppercase?");
+      var capUppercase = uppercase.toUpperCase();
+      while (capUppercase !== "YES" && capUppercase !== "NO") {
+          uppercase = prompt("Must answer yes or no");
+          capUppercase = uppercase.toUpperCase();
+      }
+      if (capUppercase === "YES") {
+          characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+          type++;
+          console.log(characters);
+      }
 
-  var uppercase = prompt("Uppercase?");
-  var capUppercase = uppercase.toUpperCase();
-  while (capUppercase !== "YES" && capUppercase !== "NO") {
-      uppercase = prompt("Must answer yes or no");
-      capUppercase = uppercase.toUpperCase();
-  }
-  if (capUppercase === "YES") {
-      characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-      console.log(characters);
-  }
+      var lowercase = prompt("Lowercase?");
+      var capLowercase = lowercase.toUpperCase();
+      while (capLowercase !== "YES" && capLowercase !== "NO") {
+          lowercase = prompt("Must answer yes or no");
+          capLowercase = lowercase.toUpperCase();
+      }
+      if (capLowercase === "YES") {
+          characters += "abcdefghijklmnopqrstuvwxyz";
+          type++;
+          console.log(characters);
+      }
 
-  var lowercase = prompt("Lowercase?");
-  var capLowercase = lowercase.toUpperCase();
-  while (capLowercase !== "YES" && capLowercase !== "NO") {
-      lowercase = prompt("Must answer yes or no");
-      capLowercase = lowercase.toUpperCase();
-  }
-  if (capLowercase === "YES") {
-      characters += "abcdefghijklmnopqrstuvwxyz";
-      console.log(characters);
-  }
+        var numeric = prompt("Numbers?");
+        var capNumeric = numeric.toUpperCase();
+      while (capNumeric !== "YES" && capNumeric !== "NO") {
+          numeric = prompt("Must answer yes or no");
+          capNumeric = numeric.toUpperCase();
+      }
+      if (capNumeric === "YES") {
+          characters += "0123456789";
+          type++;
+          console.log(characters);
+      }
 
-    var numeric = prompt("Numbers?");
-    var capNumeric = numeric.toUpperCase();
-  while (capNumeric !== "YES" && capNumeric !== "NO") {
-      numeric = prompt("Must answer yes or no");
-      capNumeric = numeric.toUpperCase();
-  }
-  if (capNumeric === "YES") {
-      characters += "0123456789";
-      console.log(characters);
-  }
-
-    var special = prompt("Special characters?");
-    var capSpecial = special.toUpperCase();
-  while (capSpecial !== "YES" && capSpecial !== "NO") {
-      special = prompt("Must answer yes or no");
-      capSpecial = special.toUpperCase();
-  }
-  if (capSpecial === "YES") {
-      characters += "[$&+,:;=?@#|'<>.-^*()%!]";
-      console.log(characters);
-  }
+        var special = prompt("Special characters?");
+        var capSpecial = special.toUpperCase();
+      while (capSpecial !== "YES" && capSpecial !== "NO") {
+          special = prompt("Must answer yes or no");
+          capSpecial = special.toUpperCase();
+      }
+      if (capSpecial === "YES") {
+          characters += "[$&+,:;=?@#|'<>.-^*()%!]";
+          type++;
+          console.log(characters);
+      }
+      if (type === 0) {
+        prompt("You must add at least one character type");
+      }
+    }
 
   password = "";
 
