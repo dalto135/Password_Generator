@@ -1,28 +1,18 @@
 // Assignment Code
-console.log(Number.isInteger(length));
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
     var length = prompt("What is your password length?");
-  while (Number.isInteger(length) || length < 8 || length > 128) {
+  while (length < 8 || length > 128) {
       length = prompt("Enter a number between 8 and 128"); 
   }
-
+  // !Number.isInteger(length)
+  
+  //while loop that displaces a series of prompts to determine what type of password to create,
+  //continues until at least one character type is selected
   var characters = "";
   var type = 0;
   while (type === 0) {
-      var uppercase = prompt("Uppercase?");
-      var capUppercase = uppercase.toUpperCase();
-      while (capUppercase !== "YES" && capUppercase !== "NO") {
-          uppercase = prompt("Must answer yes or no");
-          capUppercase = uppercase.toUpperCase();
-      }
-      if (capUppercase === "YES") {
-          characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-          type++;
-          console.log(characters);
-      }
-
       var lowercase = prompt("Lowercase?");
       var capLowercase = lowercase.toUpperCase();
       while (capLowercase !== "YES" && capLowercase !== "NO") {
@@ -31,6 +21,18 @@ function generatePassword() {
       }
       if (capLowercase === "YES") {
           characters += "abcdefghijklmnopqrstuvwxyz";
+          type++;
+          console.log(characters);
+      }
+
+      var uppercase = prompt("Uppercase?");
+      var capUppercase = uppercase.toUpperCase();
+      while (capUppercase !== "YES" && capUppercase !== "NO") {
+          uppercase = prompt("Must answer yes or no");
+          capUppercase = uppercase.toUpperCase();
+      }
+      if (capUppercase === "YES") {
+          characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
           type++;
           console.log(characters);
       }
@@ -62,15 +64,14 @@ function generatePassword() {
         prompt("You must add at least one character type");
       }
     }
-
-  password = "";
-
+  var password = "";
+//Employes a random number generator to create the unique password
   for (var i = 0; i < length; i++) {
     var random = Math.floor(Math.random() * characters.length);
     var cha = characters.charAt(random);
     password += cha;
   }
-  console.log(password);
+  console.log("Password: " + password);
 
   return password;
 }
