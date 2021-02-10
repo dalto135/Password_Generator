@@ -8,8 +8,7 @@ function generatePassword() {
       strLength = prompt("Enter a number between 8 and 128");
       length = parseInt(strLength);
   }
-  // !Number.isInteger(length)
-  
+
   //while loop that displaces a series of prompts to determine what type of password to create,
   //continues until at least one character type is selected
   var characters = "";
