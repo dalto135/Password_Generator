@@ -2,9 +2,11 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-    var length = prompt("What is your password length?");
-  while (length < 8 || length > 128) {
-      length = prompt("Enter a number between 8 and 128"); 
+    var strLength = prompt("What is your password length?");
+    var length = parseInt(strLength);
+  while (!Number.isInteger(length) || length < 8 || length > 128) {
+      strLength = prompt("Enter a number between 8 and 128");
+      length = parseInt(strLength);
   }
   // !Number.isInteger(length)
   
