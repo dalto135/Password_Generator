@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   // Array of arrays used to let the user choose which character types to include in their password
-  var object = [["Lowercase?", "abcdefghijklmnopqrstuvwxyz"], ["Uppercase?", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"], 
+  var array = [["Lowercase?", "abcdefghijklmnopqrstuvwxyz"], ["Uppercase?", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"], 
   ["Numbers?", "0123456789"], ["Special characters?", "[$&+,:;=?@#|'<>.-^*()%!]"]];
   
   //While loop that takes an input from the user to be used as the password length. Must be an Integer
@@ -19,22 +19,18 @@ function generatePassword() {
   var characters = "";
   var type = 0;
   while (type === 0) {
-    for (i = 0; i < object.length; i++) {
-      var input = prompt(object[i][0]);
-      var capInput = input.toUpperCase();
-      while (capInput !== "YES" && capInput !== "NO") {
-        input = prompt("Must answer yes or no");
-        capInput = input.toUpperCase();
-      }
-      if (capInput === "YES") {
-        characters += object[i][1];
+    for (i = 0; i < array.length; i++) {
+      var input = confirm(array[i][0]);
+
+      if (input === true) {
+        characters += array[i][1];
         type++;
         console.log(characters);
       }
     }
       //Ensures that at least one character type was chosen to create the password
       if (type === 0) {
-        prompt("You must add at least one character type");
+        alert("You must add at least one character type");
       }
   }
 
