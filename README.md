@@ -11,7 +11,7 @@
 [Contact](#Contact)
 
 ## Link
-https://dalto135.github.io/password_generator/
+https://dalto135.github.io/password-generator/
 
 ## Technologies
 HTML, CSS and Javascript
