@@ -26,4 +26,4 @@ A simple program that presents the user with a series of prompts in order to cre
 MIT
 
 ## Contact
-Dalton Wilkins - wilkins.271@osu.edu
+Dalton Wilkins - daltongh@gmail.com
