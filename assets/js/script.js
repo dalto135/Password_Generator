@@ -1,6 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var quickGenerate = document.querySelector("#quickGenerate");
+var copyButton = document.querySelector("#copyButton");
 
 function generatePassword() {
   // Array of arrays used to let the user choose which character types to include in their password
@@ -36,29 +37,30 @@ function generatePassword() {
   }
 
   //Employs a random number generator to create the unique password
-  var pass = "";
-  for (var i = 0; i < length; i++) {
-    var random = Math.floor(Math.random() * characters.length);
-    var cha = characters.charAt(random);
-    pass += cha;
-  }
-  console.log("Password: " + pass);
+  var pass = constructPassword(characters, length);
 
   return pass;
 }
 
 function generateQuickPassword() {
-  var quickCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[$&+,:;=?@#|'<>.-^*()%!]";
-  
-  var quickPass = "";
-  for (var i = 0; i < 16; i++) {
-    var random = Math.floor(Math.random() * quickCharacters.length);
-    var cha = quickCharacters.charAt(random);
-    quickPass += cha;
-  }
-  console.log("Password: " + quickPass);
+  var quickCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@_`{|}~";
+  var length = 16;
+
+  var quickPass = constructPassword(quickCharacters, length);
 
   return quickPass;
+}
+
+function constructPassword(characters, length) {
+  var password = "";
+  for (var i = 0; i < length; i++) {
+    var random = Math.floor(Math.random() * characters.length);
+    var cha = characters.charAt(random);
+    password += cha;
+  }
+  console.log("Password: " + password);
+
+  return password;
 }
 
 // Write password to the #password input
@@ -77,6 +79,22 @@ function writeQuickPassword() {
   quickPasswordText.value = quickPassword;
 }
 
+function copyText() {
+  /* Get the text field */
+  var copyText = document.querySelector("#password");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 quickGenerate.addEventListener("click", writeQuickPassword);
+copyButton.addEventListener("click", copyText);
