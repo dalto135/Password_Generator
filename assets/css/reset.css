@@ -6,6 +6,7 @@
     font-family: eurostile, Helvetica, Arial, sans-serif;
     font-weight: normal;
     color: black;
+    text-align: center;
 }
 
 :root {
@@ -56,7 +57,6 @@ footer {
 div {
     border-color: var(--niceTeal);
     flex: 1 1;
-    text-align: center;
 }
 
 h1, h2, a, li {
@@ -67,10 +67,21 @@ h1, h2, a, li {
     padding: 3px;
 }
 
+textarea {
+    width: 50%;
+    height: 150px;
+}
+
 button, textarea {
     color: black;
     background-color: var(--cloudy);
     padding: 3px;
+}
+
+#password-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #blank, #blank2 {
@@ -96,7 +107,6 @@ p, li, button, textarea {
 
 .employee li {
     flex: 1 1;
-    text-align: center;
     list-style-type: none;
 }
 
@@ -106,7 +116,6 @@ p, li, button, textarea {
 
 #categories p, #categories h2 {
     flex: 1 1;
-    text-align: center;
 }
 
 ul {
@@ -114,7 +123,6 @@ ul {
 }
 
 .div h1 {
-    text-align: center;
     background-color: var(--pastelGreen);
 }
 
@@ -132,13 +140,11 @@ ul {
 
 #view a {
     flex: 1 1;
-    text-align: center;
     margin: 6px 3px 0px 3px;
 }
 
 #links a {
     flex: 1 1;
-    text-align: center;
 }
 #links input {
     flex: 2 2;
@@ -146,7 +152,6 @@ ul {
 
 #title a {
     flex: 1 1;
-    text-align: center;
     background-color: var(--pastelBlue);
     margin: 6px 3px 0px 3px;
 }
