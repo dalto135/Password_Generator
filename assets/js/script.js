@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var quickGenerate = document.querySelector("#quickGenerate");
 
 function generatePassword() {
   // Array of arrays used to let the user choose which character types to include in their password
@@ -46,6 +47,20 @@ function generatePassword() {
   return pass;
 }
 
+function generateQuickPassword() {
+  var quickCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789[$&+,:;=?@#|'<>.-^*()%!]";
+  
+  var quickPass = "";
+  for (var i = 0; i < 16; i++) {
+    var random = Math.floor(Math.random() * quickCharacters.length);
+    var cha = quickCharacters.charAt(random);
+    quickPass += cha;
+  }
+  console.log("Password: " + quickPass);
+
+  return quickPass;
+}
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -55,5 +70,13 @@ function writePassword() {
 
 }
 
+function writeQuickPassword() {
+  var quickPassword = generateQuickPassword();
+  var quickPasswordText = document.querySelector("#password");
+
+  quickPasswordText.value = quickPassword;
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+quickGenerate.addEventListener("click", writeQuickPassword);
