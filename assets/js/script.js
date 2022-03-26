@@ -9,11 +9,25 @@ function generatePassword() {
   ["Numbers?", "0123456789"], ["Special characters?", "[$&+,:;=?@#|'<>.-^*()%!]"]];
   
   //While loop that takes an input from the user to be used as the password length. Must be an Integer
-  var strLength = prompt("What is your password length?");
+  var strLength = prompt("What is your password length? (Must be between 8 and 128 characters)");
   var length = parseInt(strLength);
+
+  console.log(strLength);
+
+  if (strLength === null) {
+    console.log("exit");
+    return;
+  }
+
   while (!Number.isInteger(length) || length < 8 || length > 128) {
-      strLength = prompt("Enter a number between 8 and 128");
-      length = parseInt(strLength);
+    strLength = prompt("Enter a number between 8 and 128");
+
+    if (strLength === null) {
+      console.log("exit");
+      return;
+    }
+
+    length = parseInt(strLength);
   }
 
   //While loop that displays a series of prompts to determine what type of password to create,
@@ -68,8 +82,12 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
+  if (password == undefined) {
+    passwordText.value = "";
+  }
+  else {
+    passwordText.value = password;
+  }
 }
 
 function writeQuickPassword() {
@@ -79,7 +97,7 @@ function writeQuickPassword() {
   quickPasswordText.value = quickPassword;
 }
 
-function copyText() {
+async function copyText() {
   /* Get the text field */
   var copyText = document.querySelector("#password");
 
@@ -88,13 +106,16 @@ function copyText() {
   copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
    /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyText.value);
+  await navigator.clipboard.writeText(copyText.value);
 
   /* Alert the copied text */
-  alert("Copied the text: " + copyText.value);
+  // alert("Copied to clipboard: " + copyText.value);
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 quickGenerate.addEventListener("click", writeQuickPassword);
 copyButton.addEventListener("click", copyText);
+
+// quickGenerate.addEventListener("click", copyText);
+// generateBtn.addEventListener("click", copyText);

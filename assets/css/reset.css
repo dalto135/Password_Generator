@@ -78,6 +78,10 @@ button, textarea {
     padding: 3px;
 }
 
+button:hover {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}
+
 #password-body {
     display: flex;
     flex-direction: column;
