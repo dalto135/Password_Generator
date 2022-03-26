@@ -106,7 +106,8 @@ async function copyText() {
   copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
    /* Copy the text inside the text field */
-  await navigator.clipboard.writeText(copyText.value);
+  await navigator.clipboard.writeText(copyText.value)
+    .then(console.log("Password copied to clipboard"));
 
   /* Alert the copied text */
   // alert("Copied to clipboard: " + copyText.value);
