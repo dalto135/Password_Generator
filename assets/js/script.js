@@ -91,59 +91,38 @@ function writePassword() {
 
 function writeQuickPassword() {
   do {
-    var number = 0;
-    var big = 0;
-    var small = 0;
-    var symbol = 0;
-    var total = 0;
+    var lower = false;
+    var upper = false;
+    var number = false;
+    var symbol = false;
 
     var quickPassword = generateQuickPassword();
     console.log("quickPassword: " + quickPassword);
 
-    for (var i = 0; i < quickPassword.length; ++i) {
-      var char = quickPassword.charAt(i);
-
-      if (Number.isInteger(parseInt(char))) {
-        number = 1;
-        console.log('NUMBER');
-      }
-    }
-
-    for (var i = 0; i < quickPassword.length; ++i) {
-      var char = quickPassword.charAt(i);
-
-      if (char.match(/[a-z]/i) != null && char == char.toUpperCase()) {
-        big = 1;
-        console.log('UPPER');
-      }
-    }
-
-    for (var i = 0; i < quickPassword.length; ++i) {
-      var char = quickPassword.charAt(i);
-
+    for (let char of quickPassword) {
       if (char.match(/[a-z]/i) != null && char == char.toLowerCase()) {
-        small = 1;
+        lower = true;
         console.log('LOWER');
       }
-    }
-
-    for (var i = 0; i < quickPassword.length; ++i) {
-      var char = quickPassword.charAt(i);
-
-      if (char.match(/[a-z]/i) == null && !parseInt(char)) {
-        symbol = 1;
+      else if (char.match(/[a-z]/i) != null && char == char.toUpperCase()) {
+        upper = true;
+        console.log('UPPER');
+      }
+      else if (Number.isInteger(parseInt(char))) {
+        number = true;
+        console.log('NUMBER');
+      }
+      else if (char.match(/[a-z]/i) == null && !parseInt(char)) {
+        symbol = true;
         console.log('SYMBOL');
       }
     }
 
-    total = number + big + small + symbol;
-    console.log("total: " + total);
-  } while (total != 4);
+  } while (!lower || !upper || !number || !symbol);
 
-  console.log("final total: " + total);
   console.log("FINAL PASSWORD: " + quickPassword);
-  var quickPasswordText = document.querySelector("#password");
 
+  var quickPasswordText = document.querySelector("#password");
   quickPasswordText.value = quickPassword;
 }
 
