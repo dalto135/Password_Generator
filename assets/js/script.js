@@ -103,7 +103,7 @@ function writeQuickPassword() {
     for (var i = 0; i < quickPassword.length; ++i) {
       var char = quickPassword.charAt(i);
 
-      if (!Number.isNaN(parseInt(char))) {
+      if (Number.isInteger(parseInt(char))) {
         number = 1;
         console.log('NUMBER');
       }
