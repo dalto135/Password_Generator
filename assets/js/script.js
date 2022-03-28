@@ -72,7 +72,6 @@ function constructPassword(characters, length) {
     var cha = characters.charAt(random);
     password += cha;
   }
-  console.log("Password: " + password);
 
   return password;
 }
@@ -91,7 +90,58 @@ function writePassword() {
 }
 
 function writeQuickPassword() {
-  var quickPassword = generateQuickPassword();
+  do {
+    var number = 0;
+    var big = 0;
+    var small = 0;
+    var symbol = 0;
+    var total = 0;
+
+    var quickPassword = generateQuickPassword();
+    console.log("quickPassword: " + quickPassword);
+
+    for (var i = 0; i < quickPassword.length; ++i) {
+      var char = quickPassword.charAt(i);
+
+      if (!Number.isNaN(parseInt(char))) {
+        number = 1;
+        console.log('NUMBER');
+      }
+    }
+
+    for (var i = 0; i < quickPassword.length; ++i) {
+      var char = quickPassword.charAt(i);
+
+      if (char.match(/[a-z]/i) != null && char == char.toUpperCase()) {
+        big = 1;
+        console.log('UPPER');
+      }
+    }
+
+    for (var i = 0; i < quickPassword.length; ++i) {
+      var char = quickPassword.charAt(i);
+
+      if (char.match(/[a-z]/i) != null && char == char.toLowerCase()) {
+        small = 1;
+        console.log('LOWER');
+      }
+    }
+
+    for (var i = 0; i < quickPassword.length; ++i) {
+      var char = quickPassword.charAt(i);
+
+      if (char.match(/[a-z]/i) == null && !parseInt(char)) {
+        symbol = 1;
+        console.log('SYMBOL');
+      }
+    }
+
+    total = number + big + small + symbol;
+    console.log("total: " + total);
+  } while (total != 4);
+
+  console.log("final total: " + total);
+  console.log("FINAL PASSWORD: " + quickPassword);
   var quickPasswordText = document.querySelector("#password");
 
   quickPasswordText.value = quickPassword;
