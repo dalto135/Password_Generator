@@ -1,137 +1,110 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+* {
+    border: 1px solid black;
+    margin: 6px 3px;
+    padding: 0px 3px;
+    border-radius: 6px;
+    font-family: eurostile, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    color: black;
+    text-align: center;
 }
 
-html,
-body,
-.wrapper {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+:root {
+    /* Regular colors */
+    --grey: rgb(32, 32, 40);
+    --blue: rgb(0, 0, 64);
+    --teal: rgb(0, 80, 80);
+    --niceTeal: rgb(0, 100, 150);
+    --green: rgb(0, 128, 64);
+    --mint: rgb(0, 192, 96);
+    --red: rgb(128, 0, 64);
+    --nonPastelGreen: rgb(144, 223, 160);
+
+    /* Pastel colors */
+    --cloudy: rgba(255, 255, 255, 0.5);
+    --pastelGreen: rgba(144, 223, 160, 0.75);
+    --pastelBlue: rgba(128, 186, 255, 0.75);
+    --pastelRed: rgba(223, 144, 174, 0.75);
+    --pastelTeal: rgba(128, 206, 206, 0.75);
+}
+
+html {
+    background: var(--grey);
+    border: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: sans-serif;
-  background-color: #f9fbfd;
-}
-
-.wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+    border-color: var(--blue);
+    margin: 6px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
 }
 
 header {
-  text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+    border-color: var(--green);
 }
 
-.card {
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
-  border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
-  font-size: 18px;
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 30px 40px;
+section {
+    border-color: var(--teal);
 }
 
-.card-header::after {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
+footer {
+    border-color: var(--green);
 }
 
-.card-body {
-  min-height: 100px;
+div {
+    border-color: var(--niceTeal);
 }
 
-.card-footer {
-  text-align: center;
+header, #password-body, #footer {
+    width: 350px;
 }
 
-.card-footer::before {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
+.wrapper {
+    max-width: 400px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
 }
 
-.card-footer::after {
-  content: " ";
-  display: block;
-  clear: both;
+h1, h2, a, li {
+    color: rgba(255, 255, 255, 0.75);
+    border: 0px;
+    padding: 3px;
 }
 
-.btn {
-  border: none;
-  background-color: hsl(360, 91%, 36%);
-  border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  color: hsl(0, 0%, 100%);
-  display: inline-block;
-  font-size: 22px;
-  line-height: 22px;
-  margin: 16px 16px 16px 20px;
-  padding: 14px 34px;
-  text-align: center;
-  cursor: pointer;
+textarea {
+    width: 300px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.75);
+    color: black;
+    padding: 3px;
 }
 
-button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
+@media screen and (max-width: 400px) {
+    header, #password-body, #footer, textarea {
+        width: 90%;
+    }
 }
 
-.float-right {
-  float: right;
+button {
+    color: black;
+    background-color: var(--cloudy);
+    padding: 3px;
 }
 
-#password {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  display: block;
-  width: 100%;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 85px;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
-  border-radius: 6px;
-  resize: none;
-  overflow: hidden;
+button:hover {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
 }
 
-@media (max-width: 690px) {
-  .btn {
-    font-size: 1rem;
-    margin: 16px 0px 0px 0px;
-    padding: 10px 15px;
-  }
-
-  #password {
-    font-size: 1rem;
-  }
+#password-body {
+    margin: 0px 3px;
 }
 
-@media (max-width: 500px) {
-  .btn {
-    font-size: 0.8rem;
-  }
+p, li, button, textarea {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
 }
