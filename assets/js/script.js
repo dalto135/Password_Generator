@@ -112,12 +112,11 @@ function writeQuickPassword() {
         number = true;
         console.log('NUMBER');
       }
-      else if (char.match(/[a-z]/i) == null && !parseInt(char)) {
+      else {
         symbol = true;
         console.log('SYMBOL');
       }
     }
-
   } while (!lower || !upper || !number || !symbol);
 
   console.log("FINAL PASSWORD: " + quickPassword);
