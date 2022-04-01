@@ -17,7 +17,7 @@ https://dalto135.github.io/password-generator/
 HTML, CSS and Javascript
 
 ## Description
-A simple program that presents the user with a series of prompts in order to create a random password of their specifications. The user can choose the length, and whether the password includes uppercase and lowercase letters, numbers and special characters.
+A simple program that generates a random password. The user can click "Quick Generate" to instantly create a password, or they can create a custom password where they choose the length, and whether the password includes uppercase and lowercase letters, numbers and special characters.
 
 ## Screenshots
 ![Screenshot](assets/images/screenshot.png)

@@ -53,13 +53,13 @@ div {
 
 .wrapper {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     margin: 6px;
     border-color: var(--blue);
     border-radius: 12px;
 }
 
-h1, h2, a, li {
+h1 {
     color: rgba(255, 255, 255, 0.75);
     border: 0px;
     padding: 3px;
@@ -67,8 +67,8 @@ h1, h2, a, li {
 
 textarea {
     width: 90%;
-    max-width: 300px;
-    height: 150px;
+    max-width: 400px;
+    height: 200px;
     background-color: rgba(255, 255, 255, 0.75);
     padding: 3px;
 }
@@ -91,5 +91,5 @@ button:hover {
 
 p, li, button, textarea {
     font-family: 'Times New Roman', Times, serif;
-    font-size: large;
+    font-size: x-large;
 }
