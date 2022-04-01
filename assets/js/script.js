@@ -8,27 +8,25 @@ function generatePassword() {
   var array = [["Lowercase?", "abcdefghijklmnopqrstuvwxyz"], ["Uppercase?", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"], 
   ["Numbers?", "0123456789"], ["Special characters?", "!\"#$%&'()*+,-./:;<=>?@_`{|}~^"]];
   
-  //While loop that takes an input from the user to be used as the password length. Must be an Integer
-  var strLength = prompt("What is your password length? (Must be between 8 and 128 characters)");
-  var length = parseInt(strLength);
-
-  console.log(strLength);
-
-  if (strLength === null) {
-    console.log("exit");
-    return;
-  }
-
-  while (!Number.isInteger(length) || length < 8 || length > 128) {
-    strLength = prompt("Enter a number between 8 and 128");
+  //Do...while loop that takes an input from the user to be used as the password length. Must be an Integer
+  do {
+    var strLength = prompt("What is your password length? (Must be between 8 and 128 characters)");
+    var length = parseInt(strLength);
+    console.log(strLength);
 
     if (strLength === null) {
       console.log("exit");
       return;
     }
 
-    length = parseInt(strLength);
-  }
+    var numbers = true;
+
+    for (let char of strLength) {
+      if (!Number.isInteger(parseInt(char))) {
+        numbers = false;
+      }
+    }
+  } while (length < 8 || length > 128 || !numbers || strLength === "");
 
   //While loop that displays a series of prompts to determine what type of password to create,
   //continues until at least one character type is selected
@@ -81,10 +79,7 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  if (password == undefined) {
-    passwordText.value = "";
-  }
-  else {
+  if (password) {
     passwordText.value = password;
   }
 }
