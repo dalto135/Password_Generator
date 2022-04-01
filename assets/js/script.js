@@ -6,7 +6,7 @@ var copyButton = document.querySelector("#copyButton");
 function generatePassword() {
   // Array of arrays used to let the user choose which character types to include in their password
   var array = [["Lowercase?", "abcdefghijklmnopqrstuvwxyz"], ["Uppercase?", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"], 
-  ["Numbers?", "0123456789"], ["Special characters?", "[$&+,:;=?@#|'<>.-^*()%!]"]];
+  ["Numbers?", "0123456789"], ["Special characters?", "!\"#$%&'()*+,-./:;<=>?@_`{|}~^"]];
   
   //While loop that takes an input from the user to be used as the password length. Must be an Integer
   var strLength = prompt("What is your password length? (Must be between 8 and 128 characters)");
@@ -57,7 +57,7 @@ function generatePassword() {
 }
 
 function generateQuickPassword() {
-  var quickCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789!\"#$%&'()*+,-./:;<=>?@_`{|}~";
+  var quickCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789!\"#$%&'()*+,-./:;<=>?@_`{|}~^";
   var length = 16;
 
   var quickPass = constructPassword(quickCharacters, length);
