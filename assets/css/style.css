@@ -93,3 +93,14 @@ p, li, button, textarea {
     font-family: 'Times New Roman', Times, serif;
     font-size: x-large;
 }
+
+label, form {
+    color: rgba(255, 255, 255, 0.75);
+    border: 0px;
+    font-size: x-large;
+}
+
+input {
+    border: 0px;
+    font-size: x-large;
+}

@@ -23,8 +23,32 @@
         <button id="copyButton">Copy Text</button>
       </div>
       <div class="card-footer" id="footer">
-        <button id="quickGenerate" class="btn">Quick Generate</button>
-        <button id="generate" class="btn">Custom Password</button>
+        <form>
+          <label>Lowercase Letters:</label>
+          <input type="checkbox" id="lowerCheck" checked/>
+        </form>
+
+        <form>
+          <label>Uppercase Letters:</label>
+          <input type="checkbox" id="upperCheck" checked/>
+        </form>
+
+        <form>
+          <label>Numbers:</label>
+          <input type="checkbox" id="numberCheck" checked/>
+        </form>
+
+        <form>
+          <label>Symbols:</label>
+          <input type="checkbox" id="symbolCheck" checked/>
+        </form>
+
+        <form>
+          <label>Password Length (8 to 128 characters):</label>
+          <input id="passwordLength" value="16"/>
+        </form>
+
+        <button id="quickGenerate" class="btn">Generate Password</button>
       </div>
     </div>
     <script src="./assets/js/script.js"></script>
