@@ -55,7 +55,7 @@ function generatePassword() {
 }
 
 function generateQuickPassword() {
-  var quickCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890123456789!\"#$%&'()*+,-./:;<=>?@_`{|}~^";
+  var quickCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@_`{|}~^";
   var length = 16;
 
   var quickPass = constructPassword(quickCharacters, length);
