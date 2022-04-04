@@ -23,28 +23,33 @@
         <button id="copyButton">Copy Text</button>
       </div>
       <div class="card-footer" id="footer">
-        <form>
-          <label>Lowercase Letters:</label>
-          <input type="checkbox" id="lowerCheck" checked/>
-        </form>
 
-        <form>
-          <label>Uppercase Letters:</label>
-          <input type="checkbox" id="upperCheck" checked/>
-        </form>
+        <div class="char">
+          <form>
+            <label>Lowercase Letters:</label>
+            <input type="checkbox" id="lowerCheck" checked/>
+          </form>
+  
+          <form>
+            <label>Uppercase Letters:</label>
+            <input type="checkbox" id="upperCheck" checked/>
+          </form>
+        </div>
 
-        <form>
-          <label>Numbers:</label>
-          <input type="checkbox" id="numberCheck" checked/>
-        </form>
+        <div class="char">
+          <form>
+            <label>Numbers:</label>
+            <input type="checkbox" id="numberCheck" checked/>
+          </form>
+  
+          <form>
+            <label>Symbols:</label>
+            <input type="checkbox" id="symbolCheck" checked/>
+          </form>
+        </div>
 
-        <form>
-          <label>Symbols:</label>
-          <input type="checkbox" id="symbolCheck" checked/>
-        </form>
-
-        <form>
-          <label>Password Length (8 to 128 characters):</label>
+        <form id="passwordForm">
+          <label id="passwordLabel">Password Length (8 to 128 characters):</label>
           <input id="passwordLength" value="16"/>
         </form>
 

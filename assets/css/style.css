@@ -89,18 +89,52 @@ button:hover {
     align-items: center;
 }
 
-p, li, button, textarea {
+p, li, button, textarea, input {
     font-family: 'Times New Roman', Times, serif;
     font-size: x-large;
 }
 
-label, form {
+label {
     color: rgba(255, 255, 255, 0.75);
     border: 0px;
-    font-size: x-large;
+    font-size: large;
 }
 
 input {
     border: 0px;
     font-size: x-large;
+}
+
+.char {
+    display: flex;
+    justify-content: center;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+form {
+    border: 0px;
+}
+
+#passwordForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#passwordLength {
+    max-width: 100px;
+}
+
+@media screen and (max-width: 500px) {
+    .char {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 200px) {
+    h1, button {
+        font-size: 15vw;
+    }
 }
