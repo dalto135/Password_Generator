@@ -62,19 +62,21 @@ function writeQuickPassword() {
       var number = false;
       var symbol = false;
 
+      var three = false;
+
       var quickPassword = constructPassword(characters, cleanLength);
       console.log("password: " + quickPassword);
 
-      for (let char of quickPassword) {
-        if (char.match(/[a-z]/i) != null && char == char.toLowerCase()) {
+      for (let i = 0; i < quickPassword.length; ++i) {
+        if (quickPassword.charAt(i).match(/[a-z]/i) != null && quickPassword.charAt(i) == quickPassword.charAt(i).toLowerCase()) {
           lower = true;
           console.log('LOWER');
         }
-        else if (char.match(/[a-z]/i) != null && char == char.toUpperCase()) {
+        else if (quickPassword.charAt(i).match(/[a-z]/i) != null && quickPassword.charAt(i) == quickPassword.charAt(i).toUpperCase()) {
           upper = true;
           console.log('UPPER');
         }
-        else if (Number.isInteger(parseInt(char))) {
+        else if (Number.isInteger(parseInt(quickPassword.charAt(i)))) {
           number = true;
           console.log('NUMBER');
         }
@@ -82,8 +84,13 @@ function writeQuickPassword() {
           symbol = true;
           console.log('SYMBOL');
         }
+        if (i > 1) {
+          if (quickPassword.charAt(i) == quickPassword.charAt(i - 1) && quickPassword.charAt(i) == quickPassword.charAt(i - 2)) {
+            three = true;
+          }
+        }
       }
-    } while (lower != lowerCheck.checked || upper != upperCheck.checked || number != numberCheck.checked || symbol != symbolCheck.checked);
+    } while (lower != lowerCheck.checked || upper != upperCheck.checked || number != numberCheck.checked || symbol != symbolCheck.checked || three);
   
     console.log("FINAL PASSWORD: " + quickPassword);
 
