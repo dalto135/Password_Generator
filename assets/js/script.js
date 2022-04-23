@@ -84,13 +84,13 @@ function writeQuickPassword() {
           symbol = true;
           console.log('SYMBOL');
         }
-        if (i > 1) {
-          if (quickPassword.charAt(i) == quickPassword.charAt(i - 1) && quickPassword.charAt(i) == quickPassword.charAt(i - 2)) {
+        if (i < quickPassword.length - 2) {
+          if (quickPassword.charAt(i) == quickPassword.charAt(i + 1) && quickPassword.charAt(i) == quickPassword.charAt(i + 2)) {
             three = true;
           }
         }
       }
-    } while (lower != lowerCheck.checked || upper != upperCheck.checked || number != numberCheck.checked || symbol != symbolCheck.checked || three);
+    } while (three || lower != lowerCheck.checked || upper != upperCheck.checked || number != numberCheck.checked || symbol != symbolCheck.checked);
   
     console.log("FINAL PASSWORD: " + quickPassword);
 
