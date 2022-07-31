@@ -8,7 +8,7 @@ function constructPassword(characters, length) {
 
   for (var i = 0; i < length; i++) {
     var random = Math.floor(Math.random() * characters.length);
-    var cha = characters.charAt(random);
+    var cha = characters[random];
     password += cha;
   }
 
@@ -16,17 +16,15 @@ function constructPassword(characters, length) {
 }
 
 function checkLength(length) {
-  for (let char of length) {
-    if (!Number.isInteger(parseInt(char))) {
-      return false;
-    }
-  }
-
-  if (parseInt(length) < 8 || parseInt(length) > 128) {
+  if (!Number(length)) {
     return false;
   }
 
-  return parseInt(length);
+  if (Number(length) < 8 || Number(length) > 128) {
+    return false;
+  }
+
+  return Number(length);
 }
 
 function writeQuickPassword() {
@@ -68,15 +66,17 @@ function writeQuickPassword() {
       console.log("password: " + quickPassword);
 
       for (let i = 0; i < quickPassword.length; ++i) {
-        if (quickPassword.charAt(i).match(/[a-z]/i) != null && quickPassword.charAt(i) == quickPassword.charAt(i).toLowerCase()) {
-          lower = true;
-          console.log('LOWER');
+        if (quickPassword[i].match(/[a-z]/i) != null) {
+          if (quickPassword[i] == quickPassword[i].toLowerCase()) {
+            lower = true;
+            console.log('LOWER');
+          }
+          else {
+            upper = true;
+            console.log('UPPER');
+          }
         }
-        else if (quickPassword.charAt(i).match(/[a-z]/i) != null && quickPassword.charAt(i) == quickPassword.charAt(i).toUpperCase()) {
-          upper = true;
-          console.log('UPPER');
-        }
-        else if (Number.isInteger(parseInt(quickPassword.charAt(i)))) {
+        else if (Number(quickPassword[i])) {
           number = true;
           console.log('NUMBER');
         }
@@ -85,7 +85,7 @@ function writeQuickPassword() {
           console.log('SYMBOL');
         }
         if (i < quickPassword.length - 2) {
-          if (quickPassword.charAt(i) == quickPassword.charAt(i + 1) && quickPassword.charAt(i) == quickPassword.charAt(i + 2)) {
+          if (quickPassword[i] == quickPassword[i + 1] && quickPassword[i] == quickPassword[i + 2]) {
             three = true;
           }
         }
