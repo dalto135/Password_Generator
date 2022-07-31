@@ -1,4 +1,4 @@
-var quickGenerate = document.querySelector("#quickGenerate");
+var generate = document.querySelector("#generate");
 var copyButton = document.querySelector("#copyButton");
 
 function constructPassword(characters, length) {
@@ -27,7 +27,7 @@ function checkLength(length) {
   return Number(length);
 }
 
-function writeQuickPassword() {
+function writePassword() {
   const lowerCheck = document.querySelector("#lowerCheck");
   const upperCheck = document.querySelector("#upperCheck");
   const numberCheck = document.querySelector("#numberCheck");
@@ -62,12 +62,12 @@ function writeQuickPassword() {
 
       var three = false;
 
-      var quickPassword = constructPassword(characters, cleanLength);
-      console.log("password: " + quickPassword);
+      var password = constructPassword(characters, cleanLength);
+      console.log("password: " + password);
 
-      for (let i = 0; i < quickPassword.length; ++i) {
-        if (quickPassword[i].match(/[a-z]/i) != null) {
-          if (quickPassword[i] == quickPassword[i].toLowerCase()) {
+      for (let i = 0; i < password.length; ++i) {
+        if (password[i].match(/[a-z]/i) != null) {
+          if (password[i] == password[i].toLowerCase()) {
             lower = true;
             console.log('LOWER');
           }
@@ -76,7 +76,7 @@ function writeQuickPassword() {
             console.log('UPPER');
           }
         }
-        else if (Number(quickPassword[i])) {
+        else if (Number.isInteger(Number(password[i]))) {
           number = true;
           console.log('NUMBER');
         }
@@ -84,18 +84,18 @@ function writeQuickPassword() {
           symbol = true;
           console.log('SYMBOL');
         }
-        if (i < quickPassword.length - 2) {
-          if (quickPassword[i] == quickPassword[i + 1] && quickPassword[i] == quickPassword[i + 2]) {
+        if (i < password.length - 2) {
+          if (password[i] == password[i + 1] && password[i] == password[i + 2]) {
             three = true;
           }
         }
       }
     } while (three || lower != lowerCheck.checked || upper != upperCheck.checked || number != numberCheck.checked || symbol != symbolCheck.checked);
   
-    console.log("FINAL PASSWORD: " + quickPassword);
+    console.log("FINAL PASSWORD: " + password);
 
-    var quickPasswordText = document.querySelector("#password");
-    quickPasswordText.value = quickPassword;
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
   }
 }
 
@@ -116,5 +116,5 @@ async function copyText() {
 }
 
 // Add event listener to generate button
-quickGenerate.addEventListener("click", writeQuickPassword);
+generate.addEventListener("click", writePassword);
 copyButton.addEventListener("click", copyText);
