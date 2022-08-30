@@ -1,5 +1,28 @@
 var generate = document.querySelector("#generate");
 var copyButton = document.querySelector("#copyButton");
+let lightDarkButton = document.querySelector("#lightDarkButton")
+
+let parent = document.querySelector("html");
+
+function setTheme() {
+  let date = new Date();
+  let time = date.getHours();
+
+  if (time >= 8 && time < 21) {
+    parent.setAttribute("id", "light");
+  }
+}
+
+setTheme();
+
+function toggleTheme() {
+  if (parent.getAttribute("id") === "light") {
+    parent.removeAttribute("id");
+  }
+  else {
+    parent.setAttribute("id", "light");
+  }
+}
 
 function constructPassword(characters, length) {
   var password = "";
@@ -118,3 +141,4 @@ async function copyText() {
 // Add event listener to generate button
 generate.addEventListener("click", writePassword);
 copyButton.addEventListener("click", copyText);
+lightDarkButton.addEventListener("click", toggleTheme);
