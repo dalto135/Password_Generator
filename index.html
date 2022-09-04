@@ -8,22 +8,25 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="icon" href="./assets/images/pad-lock-vector-icon.png" />
   </head>
+  
   <body>
     <div class="wrapper">
       <header>
         <h1>Password Generator</h1>
       </header>
+
       <section id="password-body">
         <textarea
           readonly
           id="password"
           placeholder="Passwords Appear Here"
-          aria-label="Generated Password"
-        ></textarea>
+          aria-label="Generated Password">
+        </textarea>
+
         <button id="copyButton">Copy Text</button>
       </section>
-      <section class="card-footer" id="footer">
 
+      <section id="password-specs">
         <div class="char">
           <form>
             <label>Lowercase Letters:</label>
@@ -55,11 +58,13 @@
 
         <button id="generate" class="btn">Generate Password</button>
       </section>
+
       <footer>
         <button id="lightDarkButton">Light/Dark Mode</button>
         <a href="https://github.com/dalto135/password-generator" target="_blank">Github</a>
       </footer>
     </div>
+
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
