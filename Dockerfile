@@ -10,5 +10,7 @@ RUN mkdir -p /usr/share/nginx/html
 # Copy app code (.) to /usr/src/app in container image
 COPY . /usr/share/nginx/html
 
+COPY favicon.ico /
+
 # Set working directory context
 WORKDIR /usr/share/nginx/html
