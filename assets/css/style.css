@@ -158,6 +158,14 @@ a:hover, button:hover {
     background-image: var(--linkGradient);
 }
 
+a:active, button:active {
+    background-image: None;
+}
+
+#light a:active, #light button:active {
+    background-image: None;
+}
+
 p, li, a, button, textarea, input {
     font-family: 'Times New Roman', Times, serif;
     font-size: x-large;
