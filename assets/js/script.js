@@ -2,27 +2,28 @@ var generate = document.querySelector("#generate");
 var copyButton = document.querySelector("#copyButton");
 let lightDarkButton = document.querySelector("#lightDarkButton")
 
-let parent = document.querySelector("html");
+let html_element = document.querySelector("html");
+
+function toggleTheme() {
+  if (html_element.getAttribute("id") === "light") {
+    html_element.removeAttribute("id");
+  }
+  else {
+    html_element.setAttribute("id", "light");
+  }
+}
 
 function setTheme() {
   let date = new Date();
   let time = date.getHours();
 
   if (time >= 8 && time < 21) {
-    parent.setAttribute("id", "light");
+    toggleTheme()
   }
 }
 
 setTheme();
 
-function toggleTheme() {
-  if (parent.getAttribute("id") === "light") {
-    parent.removeAttribute("id");
-  }
-  else {
-    parent.setAttribute("id", "light");
-  }
-}
 
 function constructPassword(characters, length) {
   var password = "";
