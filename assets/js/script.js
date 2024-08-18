@@ -22,13 +22,10 @@ function setTheme() {
   }
 }
 
-setTheme();
-
+// setTheme();
 
 function constructPassword(characters, length) {
   var password = "";
-
-  console.log("length: " + length);
 
   for (var i = 0; i < length; i++) {
     var random = Math.floor(Math.random() * characters.length);
@@ -73,7 +70,6 @@ function writePassword() {
   if (symbolCheck.checked) {
     characters += "!\"#$%&'()*+,-./:;<=>?@_`{|}~^";
   }
-  console.log("characters: " + characters);
 
   var cleanLength = checkLength(passwordLength.value);
 
@@ -87,26 +83,21 @@ function writePassword() {
       var three = false;
 
       var password = constructPassword(characters, cleanLength);
-      console.log("password: " + password);
 
       for (let i = 0; i < password.length; ++i) {
         if (password[i].match(/[a-z]/i) != null) {
           if (password[i] == password[i].toLowerCase()) {
             lower = true;
-            console.log('LOWER');
           }
           else {
             upper = true;
-            console.log('UPPER');
           }
         }
         else if (Number.isInteger(Number(password[i]))) {
           number = true;
-          console.log('NUMBER');
         }
         else {
           symbol = true;
-          console.log('SYMBOL');
         }
         if (i < password.length - 2) {
           if (password[i] == password[i + 1] && password[i] == password[i + 2]) {
@@ -115,8 +106,6 @@ function writePassword() {
         }
       }
     } while (three || lower != lowerCheck.checked || upper != upperCheck.checked || number != numberCheck.checked || symbol != symbolCheck.checked);
-  
-    console.log("FINAL PASSWORD: " + password);
 
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
@@ -133,7 +122,7 @@ async function copyText() {
 
    /* Copy the text inside the text field */
   await navigator.clipboard.writeText(copyText.value)
-    .then(console.log("Password copied to clipboard"));
+    .then();
 
   /* Alert the copied text */
   // alert("Copied to clipboard: " + copyText.value);
